@@ -31,15 +31,35 @@ export const WhyBuyInfo = () => {
 
                     <div className="animate-slide-in-right">
                         <div className="bg-card rounded-3xl border border-border shadow-card p-6 lg:p-8 h-full flex flex-col gap-6">
-                            <div className="relative w-full max-w-md mx-auto h-56 lg:h-64 rounded-2xl overflow-hidden">
-                                <Image
-                                    src="/elvatech.png"
-                                    alt="Спектрометр Elvatech під час оцінки каталізатора"
-                                    fill
-                                    className="object-cover"
-                                    sizes="(min-width: 1024px) 420px, 100vw"
-                                    priority
-                                />
+                            <div className="grid grid-cols-3 gap-3 w-full max-w-md mx-auto">
+                                <div className="relative w-full aspect-square rounded-xl overflow-hidden border-2 border-border hover:border-primary transition-colors">
+                                    <Image
+                                        src="/olympus.png"
+                                        alt="Спектрометр Olympus під час оцінки каталізатора"
+                                        fill
+                                        className="object-cover"
+                                        sizes="(min-width: 1024px) 140px, 33vw"
+                                    />
+                                </div>
+                                <div className="relative w-full aspect-square rounded-xl overflow-hidden border-2 border-border hover:border-primary transition-colors">
+                                    <Image
+                                        src="/olympus1.png"
+                                        alt="Спектрометр Olympus під час оцінки каталізатора"
+                                        fill
+                                        className="object-cover"
+                                        sizes="(min-width: 1024px) 140px, 33vw"
+                                        priority
+                                    />
+                                </div>
+                                <div className="relative w-full aspect-square rounded-xl overflow-hidden border-2 border-border hover:border-primary transition-colors">
+                                    <Image
+                                        src="/olympus2.png"
+                                        alt="Спектрометр Olympus під час оцінки каталізатора"
+                                        fill
+                                        className="object-cover"
+                                        sizes="(min-width: 1024px) 140px, 33vw"
+                                    />
+                                </div>
                             </div>
 
                             <div className="space-y-4">
@@ -47,7 +67,7 @@ export const WhyBuyInfo = () => {
                                     Прозора оцінка в режимі реального часу
                                 </h3>
                                 <p className="text-muted-foreground leading-relaxed">
-                                    Ми використовуємо професійний спектрометр Elvatech для вимірювання вмісту
+                                    Ми використовуємо професійний спектрометр Olympus для вимірювання вмісту
                                     <span className="font-semibold text-foreground"> Pt, Pd, Rh </span>
                                     (платина, паладій, родій) у вашому каталізаторі. Ви особисто
                                     бачите результати на екрані приладу та розумієте, з чого
