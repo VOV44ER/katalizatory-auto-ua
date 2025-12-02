@@ -95,6 +95,21 @@ export const WhyBuyInfo = () => {
                                     <p className="text-2xl font-bold text-primary">+50%</p>
                                 </div>
                             </div>
+
+                            <div className="mt-6">
+                                <div className="relative w-full max-w-[11rem] mx-auto rounded-2xl overflow-hidden border border-border shadow-card">
+                                    <Image
+                                        src="/catalyst-milling-drum.png"
+                                        alt="Бочка для помелу каталізаторів"
+                                        width={ 800 }
+                                        height={ 600 }
+                                        className="w-full h-auto object-cover"
+                                    />
+                                </div>
+                                <p className="mt-3 text-xs sm:text-sm text-muted-foreground">
+                                    Після помелу у спеціальній бочці проба каталізатора потрапляє на спектрометр Olympus для точного аналізу.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import Image from "next/image";
 
 export const Footer = () => {
   return (
@@ -54,14 +55,26 @@ export const Footer = () => {
         </div>
 
         <div className="mt-8">
-          <div className="w-full h-64 rounded-xl overflow-hidden border border-border">
-            <iframe
-              title="Карта розташування КАТАЛІЗАТОРИ AUTO UA"
-              src="https://www.google.com/maps?q=50.4784143,30.4918894&z=16&output=embed"
-              className="w-full h-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="relative h-64 rounded-xl overflow-hidden border border-border">
+              <Image
+                src="/office.png"
+                alt="Офіс КАТАЛІЗАТОРИ AUTO UA"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                priority
+              />
+            </div>
+            <div className="w-full h-64 rounded-xl overflow-hidden border border-border">
+              <iframe
+                title="Карта розташування КАТАЛІЗАТОРИ AUTO UA"
+                src="https://www.google.com/maps?q=50.4784143,30.4918894&z=16&output=embed"
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </div>
 
