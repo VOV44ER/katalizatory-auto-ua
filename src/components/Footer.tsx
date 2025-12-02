@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -13,6 +13,26 @@ export const Footer = () => {
             <p className="text-muted-foreground mb-4">
               Професійна скупка автомобільних каталізаторів по всій Україні. Чесні ціни, швидкі виплати.
             </p>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.facebook.com/people/%D0%9A%D0%B0%D1%82%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%82%D0%BE%D1%80%D0%B8-AUTO-UA/61559600826808/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-smooth"
+                aria-label="Facebook КАТАЛІЗАТОРИ AUTO UA"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/katalizatory_auto_ua/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-smooth"
+                aria-label="Instagram КАТАЛІЗАТОРИ AUTO UA"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
