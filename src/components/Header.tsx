@@ -15,8 +15,20 @@ export const Header = () => {
             <a href="#advantages" className="text-foreground hover:text-primary transition-smooth">
               Переваги
             </a>
+            <a href="#prices" className="text-foreground hover:text-primary transition-smooth">
+              Ціни
+            </a>
             <a href="#process" className="text-foreground hover:text-primary transition-smooth">
               Процес
+            </a>
+            <a href="#estimate" className="text-foreground hover:text-primary transition-smooth">
+              Онлайн оцінка
+            </a>
+            <a href="#testimonials" className="text-foreground hover:text-primary transition-smooth">
+              Відгуки
+            </a>
+            <a href="#faq" className="text-foreground hover:text-primary transition-smooth">
+              Питання
             </a>
             <a href="#contact" className="text-foreground hover:text-primary transition-smooth">
               Контакти
