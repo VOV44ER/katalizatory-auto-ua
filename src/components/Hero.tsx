@@ -11,8 +11,22 @@ export const Hero = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
+  const isValidUaPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "");
+    return /^380\d{9}$/.test(digits) || /^0\d{9}$/.test(digits);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isValidUaPhone(phone)) {
+      toast({
+        title: "Некоректний номер телефону",
+        description:
+          "Вкажіть, будь ласка, український номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+        variant: "destructive",
+      });
+      return;
+    }
     toast({
       title: "Заявку отримано!",
       description: "Наш менеджер зв'яжеться з вами протягом 5 хвилин",
@@ -91,13 +105,16 @@ export const Hero = () => {
                 <Input
                   type="text"
                   placeholder="Ваше ім'я"
+                  name="name"
                   value={ name }
                   onChange={ (e) => setName(e.target.value) }
                   required
                 />
                 <Input
                   type="tel"
-                  placeholder="Ваш телефон"
+                  placeholder="+380 (XX) XXX-XX-XX"
+                  name="phone"
+                  inputMode="tel"
                   value={ phone }
                   onChange={ (e) => setPhone(e.target.value) }
                   required

@@ -23,6 +23,11 @@ export const OnlineEstimate = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  const isValidUaPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "");
+    return /^380\d{9}$/.test(digits) || /^0\d{9}$/.test(digits);
+  };
+
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const files = Array.from(e.target.files);
@@ -32,6 +37,19 @@ export const OnlineEstimate = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const phone = String(formData.get("phone") || "");
+
+    if (!isValidUaPhone(phone)) {
+      toast({
+        title: "Некоректний номер телефону",
+        description:
+          "Вкажіть, будь ласка, український номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     // Simulate API call
@@ -71,6 +89,7 @@ export const OnlineEstimate = () => {
                   </Label>
                   <Input
                     id="name"
+                    name="name"
                     placeholder="Введіть ваше ім'я"
                     required
                     className="border-border focus:border-primary"
@@ -85,7 +104,9 @@ export const OnlineEstimate = () => {
                   <Input
                     id="phone"
                     type="tel"
+                    name="phone"
                     placeholder="+380 (XX) XXX-XX-XX"
+                    inputMode="tel"
                     required
                     className="border-border focus:border-primary"
                   />
