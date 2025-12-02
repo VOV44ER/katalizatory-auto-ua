@@ -27,9 +27,10 @@ export const Hero = () => {
       <div
         className="absolute inset-0 z-0"
         style={ {
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          // В Next.js импорт изображения даёт объект, поэтому используем heroBg.src
+          backgroundImage: `url(${typeof heroBg === "string" ? heroBg : heroBg.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         } }
       >
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
