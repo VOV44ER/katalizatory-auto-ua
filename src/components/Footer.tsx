@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
           {/* Company Info */ }
           <div>
             <h3 className="text-2xl font-display font-bold mb-4">
@@ -35,28 +35,6 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */ }
-          <div>
-            <h4 className="text-lg font-display font-bold mb-4">Навігація</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#advantages" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Переваги
-                </a>
-              </li>
-              <li>
-                <a href="#process" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Процес
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Контакти
-                </a>
-              </li>
-            </ul>
-          </div>
-
           {/* Contacts */ }
           <div>
             <h4 className="text-lg font-display font-bold mb-4">Контакти</h4>
@@ -65,12 +43,6 @@ export const Footer = () => {
                 <Phone className="w-4 h-4 text-primary" />
                 <a href="tel:+380631060301" className="hover:text-primary transition-smooth">
                   +38 (063) 106-03-01
-                </a>
-              </li>
-              <li className="flex items-center space-x-2 text-muted-foreground">
-                <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:info@kat-auto-ua.site" className="hover:text-primary transition-smooth">
-                  info@kat-auto-ua.site
                 </a>
               </li>
               <li className="flex items-center space-x-2 text-muted-foreground">

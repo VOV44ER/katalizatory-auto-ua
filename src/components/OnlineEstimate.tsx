@@ -120,7 +120,7 @@ export const OnlineEstimate = () => {
                     Марка авто
                   </Label>
                   <Select required>
-                    <SelectTrigger className="border-border">
+                    <SelectTrigger className="h-12 rounded-lg border-2 border-border bg-card px-4 text-base">
                       <SelectValue placeholder="Оберіть марку" />
                     </SelectTrigger>
                     <SelectContent>
@@ -192,7 +192,7 @@ export const OnlineEstimate = () => {
                 <Textarea
                   id="comment"
                   placeholder="Опишіть стан каталізатора або додайте будь-яку іншу інформацію"
-                  className="border-border focus:border-primary min-h-[100px]"
+                  className="min-h-[100px] rounded-lg border-2 border-border bg-card px-4 py-3 text-base focus:border-primary"
                 />
               </div>
 
