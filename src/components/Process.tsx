@@ -36,36 +36,36 @@ export const Process = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+          { steps.map((step, index) => (
             <div
-              key={index}
-              className="relative animate-slide-up"
-              style={{ animationDelay: `${index * 0.15}s` }}
+              key={ index }
+              className="relative animate-slide-up h-full"
+              style={ { animationDelay: `${index * 0.15}s` } }
             >
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
+              {/* Connector Line */ }
+              { index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-12 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-primary to-transparent" />
-              )}
+              ) }
 
-              <div className="relative bg-card rounded-2xl p-6 border border-border hover:border-primary/50 transition-smooth group">
-                {/* Number Badge */}
+              <div className="relative bg-card rounded-2xl p-6 border border-border hover:border-primary/50 transition-smooth group h-full flex flex-col">
+                {/* Number Badge */ }
                 <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center shadow-glow font-display font-bold text-lg">
-                  {step.number}
+                  { step.number }
                 </div>
 
                 <div className="mt-4">
                   <CheckCircle2 className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition-smooth" />
                   <h3 className="text-xl font-display font-bold mb-3">
-                    {step.title}
+                    { step.title }
                   </h3>
                   <p className="text-muted-foreground">
-                    {step.description}
+                    { step.description }
                   </p>
                 </div>
               </div>
             </div>
-          ))}
+          )) }
         </div>
       </div>
     </section>
