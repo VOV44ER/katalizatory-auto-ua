@@ -63,8 +63,8 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-2 text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:+380123456789" className="hover:text-primary transition-smooth">
-                  +380 (12) 345-67-89
+                <a href="tel:+380631060301" className="hover:text-primary transition-smooth">
+                  +38 (063) 106-03-01
                 </a>
               </li>
               <li className="flex items-center space-x-2 text-muted-foreground">
@@ -75,9 +75,21 @@ export const Footer = () => {
               </li>
               <li className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>Україна, по всій території</span>
+                <span>м. Київ, вул. Новокостянтинівська, 1В</span>
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <div className="w-full h-64 rounded-xl overflow-hidden border border-border">
+            <iframe
+              title="Карта розташування КАТАЛІЗАТОРИ AUTO UA"
+              src="https://www.google.com/maps?q=50.4784143,30.4918894&z=16&output=embed"
+              className="w-full h-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
 

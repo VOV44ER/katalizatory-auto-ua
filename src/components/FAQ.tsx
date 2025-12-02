@@ -82,7 +82,7 @@ export const FAQ = () => {
               Наші менеджери з радістю проконсультують вас
             </p>
             <a
-              href="tel:+380123456789"
+              href="tel:+380631060301"
               className="inline-block px-8 py-3 bg-gradient-accent rounded-lg font-bold hover:shadow-glow transition-smooth"
             >
               Зателефонувати зараз

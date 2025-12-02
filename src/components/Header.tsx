@@ -24,11 +24,11 @@ export const Header = () => {
           </nav>
 
           <a 
-            href="tel:+380123456789" 
+            href="tel:+380631060301" 
             className="flex items-center space-x-2 text-primary hover:text-primary/80 transition-smooth"
           >
             <Phone className="w-5 h-5" />
-            <span className="font-semibold hidden lg:inline">+380 (12) 345-67-89</span>
+            <span className="font-semibold hidden lg:inline">+38 (063) 106-03-01</span>
           </a>
         </div>
       </div>

@@ -60,13 +60,13 @@ export const MessengerButtons = () => {
           
           <div className="border-t border-border pt-2 px-2 pb-2">
             <a
-              href="tel:+380123456789"
+              href="tel:+380631060301"
               className="flex items-center gap-3 px-3 py-3 cursor-pointer rounded-md hover:bg-primary/10 transition-smooth"
             >
               <span className="text-2xl">📞</span>
               <div>
                 <p className="font-semibold text-sm">Подзвонити</p>
-                <p className="text-xs text-muted-foreground">+380 (12) 345-67-89</p>
+                <p className="text-xs text-muted-foreground">+38 (063) 106-03-01</p>
               </div>
             </a>
           </div>

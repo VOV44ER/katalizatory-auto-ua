@@ -111,10 +111,10 @@ export const PriceList = () => {
               Не знайшли свою модель? Зателефонуйте нам!
             </p>
             <a
-              href="tel:+380123456789"
+              href="tel:+380631060301"
               className="text-primary hover:text-primary/80 font-bold text-xl transition-smooth"
             >
-              +380 (12) 345-67-89
+              +38 (063) 106-03-01
             </a>
           </Card>
         </div>

@@ -43,8 +43,8 @@ export const CTA = () => {
                     </div>
                     <div>
                       <div className="font-semibold">Телефонуйте</div>
-                      <a href="tel:+380123456789" className="text-primary hover:text-primary/80 transition-smooth">
-                        +380 (12) 345-67-89
+                      <a href="tel:+380631060301" className="text-primary hover:text-primary/80 transition-smooth">
+                        +38 (063) 106-03-01
                       </a>
                     </div>
                   </div>
