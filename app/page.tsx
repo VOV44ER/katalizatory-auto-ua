@@ -1,7 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Advantages } from "@/components/Advantages";
-import { WhyExpensive } from "@/components/WhyExpensive";
 import { PriceList } from "@/components/PriceList";
 import { Process } from "@/components/Process";
 import { OnlineEstimate } from "@/components/OnlineEstimate";
@@ -17,7 +16,6 @@ export default function HomePage() {
             <Header />
             <Hero />
             <Advantages />
-            <WhyExpensive />
             <PriceList />
             <Process />
             <OnlineEstimate />
