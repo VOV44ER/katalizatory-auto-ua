@@ -5,49 +5,49 @@ const catalysts = [
   {
     brand: "Toyota",
     models: [
-      { name: "Camry 2.4", price: "12,000 - 18,000", type: "Керамічний" },
-      { name: "RAV4 2.0", price: "10,000 - 15,000", type: "Керамічний" },
-      { name: "Prius Hybrid", price: "25,000 - 35,000", type: "Металевий" },
+      { name: "Camry 2.4", price: "2,500 - 6,000", type: "Керамічний" },
+      { name: "RAV4 2.0", price: "2,000 - 5,000", type: "Керамічний" },
+      { name: "Prius Hybrid", price: "2,500 - 18,000", type: "Металевий" },
     ],
   },
   {
     brand: "BMW",
     models: [
-      { name: "3 Series", price: "15,000 - 22,000", type: "Керамічний" },
-      { name: "5 Series", price: "18,000 - 28,000", type: "Металевий" },
-      { name: "X5", price: "20,000 - 30,000", type: "Металевий" },
+      { name: "3 Series", price: "2,500 - 10,000", type: "Керамічний" },
+      { name: "5 Series", price: "2,500 - 18,000", type: "Металевий" },
+      { name: "X5", price: "2,500 - 20,000", type: "Металевий" },
     ],
   },
   {
     brand: "Mercedes-Benz",
     models: [
-      { name: "C-Class", price: "16,000 - 24,000", type: "Керамічний" },
-      { name: "E-Class", price: "20,000 - 32,000", type: "Металевий" },
-      { name: "ML-Class", price: "22,000 - 35,000", type: "Металевий" },
+      { name: "C-Class", price: "2,500 - 12,000", type: "Керамічний" },
+      { name: "E-Class", price: "2,500 - 20,000", type: "Металевий" },
+      { name: "ML-Class", price: "2,500 - 20,000", type: "Металевий" },
     ],
   },
   {
     brand: "Volkswagen",
     models: [
-      { name: "Passat B6", price: "8,000 - 12,000", type: "Керамічний" },
-      { name: "Touareg", price: "15,000 - 25,000", type: "Металевий" },
-      { name: "Golf", price: "6,000 - 10,000", type: "Керамічний" },
+      { name: "Passat B6", price: "1,800 - 4,000", type: "Керамічний" },
+      { name: "Touareg", price: "2,500 - 15,000", type: "Металевий" },
+      { name: "Golf", price: "1,500 - 3,000", type: "Керамічний" },
     ],
   },
   {
     brand: "Audi",
     models: [
-      { name: "A4", price: "14,000 - 20,000", type: "Керамічний" },
-      { name: "A6", price: "18,000 - 28,000", type: "Металевий" },
-      { name: "Q7", price: "22,000 - 35,000", type: "Металевий" },
+      { name: "A4", price: "2,500 - 8,000", type: "Керамічний" },
+      { name: "A6", price: "2,500 - 20,000", type: "Металевий" },
+      { name: "Q7", price: "2,500 - 20,000", type: "Металевий" },
     ],
   },
   {
     brand: "Lexus",
     models: [
-      { name: "RX350", price: "25,000 - 40,000", type: "Металевий" },
-      { name: "ES300", price: "15,000 - 25,000", type: "Керамічний" },
-      { name: "GX470", price: "20,000 - 32,000", type: "Металевий" },
+      { name: "RX350", price: "2,500 - 20,000", type: "Металевий" },
+      { name: "ES300", price: "2,500 - 14,000", type: "Керамічний" },
+      { name: "GX470", price: "2,500 - 20,000", type: "Металевий" },
     ],
   },
 ];
