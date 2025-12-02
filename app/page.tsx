@@ -13,7 +13,7 @@ import { MessengerButtons } from "@/components/MessengerButtons";
 
 export default function HomePage() {
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen" id="top">
             <Header />
             <Hero />
             <Advantages />
