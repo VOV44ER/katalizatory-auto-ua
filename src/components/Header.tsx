@@ -10,7 +10,7 @@ export const Header = () => {
               КАТАЛІЗАТОРИ <span className="text-primary">AUTO UA</span>
             </div>
           </div>
-          
+
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#advantages" className="text-foreground hover:text-primary transition-smooth">
               Переваги
@@ -23,8 +23,8 @@ export const Header = () => {
             </a>
           </nav>
 
-          <a 
-            href="tel:+380631060301" 
+          <a
+            href="tel:+380631060301"
             className="flex items-center space-x-2 text-primary hover:text-primary/80 transition-smooth"
           >
             <Phone className="w-5 h-5" />

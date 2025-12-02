@@ -43,21 +43,21 @@ export const MessengerButtons = () => {
         <DropdownMenuContent align="end" className="w-56 mb-2">
           <div className="p-2">
             <p className="text-sm font-semibold mb-2 px-2">Напишіть нам:</p>
-            {messengers.map((messenger) => (
-              <DropdownMenuItem key={messenger.name} asChild>
+            { messengers.map((messenger) => (
+              <DropdownMenuItem key={ messenger.name } asChild>
                 <a
-                  href={messenger.url}
+                  href={ messenger.url }
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-3 px-3 py-3 cursor-pointer rounded-md transition-smooth ${messenger.color}`}
+                  className={ `flex items-center gap-3 px-3 py-3 cursor-pointer rounded-md transition-smooth ${messenger.color}` }
                 >
-                  <span className="text-2xl">{messenger.icon}</span>
-                  <span className="font-semibold">{messenger.name}</span>
+                  <span className="text-2xl">{ messenger.icon }</span>
+                  <span className="font-semibold">{ messenger.name }</span>
                 </a>
               </DropdownMenuItem>
-            ))}
+            )) }
           </div>
-          
+
           <div className="border-t border-border pt-2 px-2 pb-2">
             <a
               href="tel:+380631060301"

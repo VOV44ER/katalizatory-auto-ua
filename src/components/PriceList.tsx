@@ -66,34 +66,34 @@ export const PriceList = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {catalysts.map((brand, index) => (
+          { catalysts.map((brand, index) => (
             <Card
-              key={index}
+              key={ index }
               className="p-6 hover:shadow-card transition-smooth hover:-translate-y-1 border-border animate-slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={ { animationDelay: `${index * 0.1}s` } }
             >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-display font-bold">{brand.brand}</h3>
+                <h3 className="text-2xl font-display font-bold">{ brand.brand }</h3>
                 <Badge variant="secondary" className="text-xs">
-                  {brand.models.length} моделей
+                  { brand.models.length } моделей
                 </Badge>
               </div>
 
               <div className="space-y-4">
-                {brand.models.map((model, modelIndex) => (
+                { brand.models.map((model, modelIndex) => (
                   <div
-                    key={modelIndex}
+                    key={ modelIndex }
                     className="border-l-2 border-primary/30 pl-4 hover:border-primary transition-smooth"
                   >
                     <div className="flex justify-between items-start mb-1">
-                      <p className="font-semibold text-foreground">{model.name}</p>
+                      <p className="font-semibold text-foreground">{ model.name }</p>
                       <Badge variant="outline" className="text-xs">
-                        {model.type}
+                        { model.type }
                       </Badge>
                     </div>
-                    <p className="text-primary font-bold">{model.price} грн</p>
+                    <p className="text-primary font-bold">{ model.price } грн</p>
                   </div>
-                ))}
+                )) }
               </div>
 
               <div className="mt-6 pt-4 border-t border-border">
@@ -102,7 +102,7 @@ export const PriceList = () => {
                 </p>
               </div>
             </Card>
-          ))}
+          )) }
         </div>
 
         <div className="mt-12 text-center">

@@ -55,23 +55,23 @@ export const FAQ = () => {
 
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
+            { faqs.map((faq, index) => (
               <AccordionItem
-                key={index}
-                value={`item-${index}`}
+                key={ index }
+                value={ `item-${index}` }
                 className="border border-border rounded-lg px-6 bg-card hover:shadow-card transition-smooth animate-slide-up"
-                style={{ animationDelay: `${index * 0.05}s` }}
+                style={ { animationDelay: `${index * 0.05}s` } }
               >
                 <AccordionTrigger className="text-left hover:text-primary transition-smooth py-6">
                   <span className="font-display font-semibold text-lg">
-                    {faq.question}
+                    { faq.question }
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                  {faq.answer}
+                  { faq.answer }
                 </AccordionContent>
               </AccordionItem>
-            ))}
+            )) }
           </Accordion>
 
           <div className="mt-12 text-center p-8 bg-card rounded-2xl border border-border">
