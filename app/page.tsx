@@ -1,22 +1,32 @@
-"use client";
-
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Index from "@/pages/Index";
-
-const queryClient = new QueryClient();
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { Advantages } from "@/components/Advantages";
+import { WhyExpensive } from "@/components/WhyExpensive";
+import { PriceList } from "@/components/PriceList";
+import { Process } from "@/components/Process";
+import { OnlineEstimate } from "@/components/OnlineEstimate";
+import { Testimonials } from "@/components/Testimonials";
+import { FAQ } from "@/components/FAQ";
+import { CTA } from "@/components/CTA";
+import { Footer } from "@/components/Footer";
+import { MessengerButtons } from "@/components/MessengerButtons";
 
 export default function HomePage() {
     return (
-        <QueryClientProvider client={ queryClient }>
-            <TooltipProvider>
-                <Toaster />
-                <Sonner />
-                <Index />
-            </TooltipProvider>
-        </QueryClientProvider>
+        <div className="min-h-screen">
+            <Header />
+            <Hero />
+            <Advantages />
+            <WhyExpensive />
+            <PriceList />
+            <Process />
+            <OnlineEstimate />
+            <Testimonials />
+            <FAQ />
+            <CTA />
+            <Footer />
+            <MessengerButtons />
+        </div>
     );
 }
 

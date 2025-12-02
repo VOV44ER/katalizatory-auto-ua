@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,7 +27,7 @@ export const CTA = () => {
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-card to-card/50 rounded-3xl p-8 lg:p-12 shadow-card border border-border animate-fade-in">
             <div className="grid lg:grid-cols-2 gap-12">
-              {/* Left Content */}
+              {/* Left Content */ }
               <div>
                 <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">
                   Готові продати ваш <span className="text-primary">каталізатор?</span>
@@ -59,27 +61,27 @@ export const CTA = () => {
                 </div>
               </div>
 
-              {/* Right Form */}
+              {/* Right Form */ }
               <div>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={ handleSubmit } className="space-y-4">
                   <Input
                     type="text"
                     placeholder="Ваше ім'я"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={ name }
+                    onChange={ (e) => setName(e.target.value) }
                     required
                   />
                   <Input
                     type="tel"
                     placeholder="Ваш телефон"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    value={ phone }
+                    onChange={ (e) => setPhone(e.target.value) }
                     required
                   />
-                  <Button 
-                    type="submit" 
-                    variant="hero" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    variant="hero"
+                    size="lg"
                     className="w-full"
                   >
                     Отримати консультацію

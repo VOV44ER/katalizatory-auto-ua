@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Upload, Car, Calendar, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -58,7 +60,7 @@ export const OnlineEstimate = () => {
 
         <div className="max-w-3xl mx-auto">
           <Card className="p-8 border-border">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={ handleSubmit } className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="flex items-center gap-2">
@@ -99,11 +101,11 @@ export const OnlineEstimate = () => {
                       <SelectValue placeholder="Оберіть марку" />
                     </SelectTrigger>
                     <SelectContent>
-                      {carBrands.map((brand) => (
-                        <SelectItem key={brand} value={brand.toLowerCase()}>
-                          {brand}
+                      { carBrands.map((brand) => (
+                        <SelectItem key={ brand } value={ brand.toLowerCase() }>
+                          { brand }
                         </SelectItem>
-                      ))}
+                      )) }
                     </SelectContent>
                   </Select>
                 </div>
@@ -145,7 +147,7 @@ export const OnlineEstimate = () => {
                     type="file"
                     multiple
                     accept="image/*"
-                    onChange={handleImageChange}
+                    onChange={ handleImageChange }
                     className="hidden"
                   />
                   <label htmlFor="photos" className="cursor-pointer">
@@ -154,9 +156,9 @@ export const OnlineEstimate = () => {
                       Натисніть для завантаження фото
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      {selectedImages.length > 0
+                      { selectedImages.length > 0
                         ? `Вибрано файлів: ${selectedImages.length}`
-                        : "PNG, JPG до 10MB (можна декілька)"}
+                        : "PNG, JPG до 10MB (можна декілька)" }
                     </p>
                   </label>
                 </div>
@@ -175,9 +177,9 @@ export const OnlineEstimate = () => {
                 type="submit"
                 size="lg"
                 className="w-full text-lg"
-                disabled={isSubmitting}
+                disabled={ isSubmitting }
               >
-                {isSubmitting ? "Надсилання..." : "Отримати оцінку"}
+                { isSubmitting ? "Надсилання..." : "Отримати оцінку" }
               </Button>
 
               <p className="text-sm text-muted-foreground text-center">
