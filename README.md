@@ -4,7 +4,7 @@
 
 ## Технологии
 
-- Vite
+- Next.js
 - TypeScript
 - React
 - shadcn-ui
