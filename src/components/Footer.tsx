@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Company Info */}
+          {/* Company Info */ }
           <div>
             <h3 className="text-2xl font-display font-bold mb-4">
               КАТАЛІЗАТОРИ <span className="text-primary">AUTO UA</span>
@@ -35,7 +35,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links */ }
           <div>
             <h4 className="text-lg font-display font-bold mb-4">Навігація</h4>
             <ul className="space-y-2">
@@ -57,7 +57,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contacts */}
+          {/* Contacts */ }
           <div>
             <h4 className="text-lg font-display font-bold mb-4">Контакти</h4>
             <ul className="space-y-3">
@@ -82,7 +82,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} КАТАЛІЗАТОРИ AUTO UA. Всі права захищені.</p>
+          <p>&copy; { new Date().getFullYear() } КАТАЛІЗАТОРИ AUTO UA. Всі права захищені.</p>
         </div>
       </div>
     </footer>
