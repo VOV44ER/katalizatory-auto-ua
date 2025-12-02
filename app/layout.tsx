@@ -8,7 +8,11 @@ export const metadata: Metadata = {
     description:
         "Оценка и выкуп автомобильных катализаторов в Украине. Быстрый расчет стоимости онлайн, честные цены, удобная доставка и моментальная оплата.",
     icons: {
-        icon: "/favicon.ico",
+        icon: [
+            { url: "/favicon.svg", type: "image/svg+xml" },
+            { url: "/favicon.ico", sizes: "any" },
+        ],
+        apple: "/favicon.svg",
     },
 };
 
