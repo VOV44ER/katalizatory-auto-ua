@@ -1,0 +1,70 @@
+import { Phone, Mail, MapPin } from "lucide-react";
+
+export const Footer = () => {
+  return (
+    <footer className="bg-card border-t border-border py-12">
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
+          {/* Company Info */}
+          <div>
+            <h3 className="text-2xl font-display font-bold mb-4">
+              КАТАЛІЗАТОРИ <span className="text-primary">AUTO UA</span>
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              Професійна скупка автомобільних каталізаторів по всій Україні. Чесні ціни, швидкі виплати.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-display font-bold mb-4">Навігація</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="#advantages" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Переваги
+                </a>
+              </li>
+              <li>
+                <a href="#process" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Процес
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Контакти
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contacts */}
+          <div>
+            <h4 className="text-lg font-display font-bold mb-4">Контакти</h4>
+            <ul className="space-y-3">
+              <li className="flex items-center space-x-2 text-muted-foreground">
+                <Phone className="w-4 h-4 text-primary" />
+                <a href="tel:+380123456789" className="hover:text-primary transition-smooth">
+                  +380 (12) 345-67-89
+                </a>
+              </li>
+              <li className="flex items-center space-x-2 text-muted-foreground">
+                <Mail className="w-4 h-4 text-primary" />
+                <a href="mailto:info@kat-auto-ua.site" className="hover:text-primary transition-smooth">
+                  info@kat-auto-ua.site
+                </a>
+              </li>
+              <li className="flex items-center space-x-2 text-muted-foreground">
+                <MapPin className="w-4 h-4 text-primary" />
+                <span>Україна, по всій території</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-border pt-8 text-center text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} КАТАЛІЗАТОРИ AUTO UA. Всі права захищені.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
