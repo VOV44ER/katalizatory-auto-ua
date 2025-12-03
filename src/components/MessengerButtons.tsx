@@ -14,19 +14,19 @@ const messengers = [
   {
     name: "Telegram",
     icon: "📱",
-    url: "https://t.me/yourusername",
+    url: "https://t.me/+380631060301",
     color: "hover:bg-[#0088cc]",
   },
   {
     name: "Viber",
     icon: "💬",
-    url: "viber://chat?number=%2B380123456789",
+    url: "viber://chat?number=%2B380631060301",
     color: "hover:bg-[#7360f2]",
   },
   {
     name: "WhatsApp",
     icon: "💚",
-    url: "https://wa.me/380123456789",
+    url: "https://wa.me/380631060301",
     color: "hover:bg-[#25d366]",
   },
 ];
