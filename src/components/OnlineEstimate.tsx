@@ -31,7 +31,23 @@ export const OnlineEstimate = () => {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const files = Array.from(e.target.files);
-      setSelectedImages(files);
+      const [first] = files;
+
+      if (first) {
+        const maxSizeBytes = 10 * 1024 * 1024;
+        if (first.size > maxSizeBytes) {
+          toast({
+            title: "Занадто великий файл",
+            description: "Максимальний розмір фото — 10MB. Оберіть, будь ласка, менший файл.",
+            variant: "destructive",
+          });
+          e.target.value = "";
+          setSelectedImages([]);
+          return;
+        }
+
+        setSelectedImages([first]);
+      }
     }
   };
 
@@ -53,29 +69,47 @@ export const OnlineEstimate = () => {
     setIsSubmitting(true);
 
     try {
-      const payload: Record<string, unknown> = {
-        source: "Online estimate form",
-        name: formData.get("name") || "",
-        phone,
-        brand: formData.get("brand") || "",
-        year: formData.get("year") || "",
-        model: formData.get("model") || "",
-        comment: formData.get("comment") || "",
-        extra: {
-          photosCount: selectedImages.length,
-        },
-      };
+      const hasPhoto = selectedImages.length > 0;
 
-      const response = await fetch("/api/telegram", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      if (hasPhoto) {
+        const photoForm = new FormData();
+        photoForm.append("name", String(formData.get("name") || ""));
+        photoForm.append("phone", phone);
+        photoForm.append("brand", String(formData.get("brand") || ""));
+        photoForm.append("year", String(formData.get("year") || ""));
+        photoForm.append("model", String(formData.get("model") || ""));
+        photoForm.append("comment", String(formData.get("comment") || ""));
+        photoForm.append("photo", selectedImages[0]);
 
-      if (!response.ok) {
-        throw new Error("Failed to send message");
+        const response = await fetch("/api/telegram-photo", {
+          method: "POST",
+          body: photoForm,
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to send message with photo");
+        }
+      } else {
+        const payload: Record<string, unknown> = {
+          name: formData.get("name") || "",
+          phone,
+          brand: formData.get("brand") || "",
+          year: formData.get("year") || "",
+          model: formData.get("model") || "",
+          comment: formData.get("comment") || "",
+        };
+
+        const response = await fetch("/api/telegram", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to send message");
+        }
       }
 
       toast({
@@ -196,13 +230,12 @@ export const OnlineEstimate = () => {
               <div className="space-y-2">
                 <Label htmlFor="photos" className="flex items-center gap-2">
                   <Upload className="w-4 h-4 text-primary" />
-                  Фото каталізатора
+                  Фото каталізатора (1 шт.)
                 </Label>
                 <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-primary transition-smooth cursor-pointer">
                   <input
                     id="photos"
                     type="file"
-                    multiple
                     accept="image/*"
                     onChange={ handleImageChange }
                     className="hidden"
@@ -214,8 +247,8 @@ export const OnlineEstimate = () => {
                     </p>
                     <p className="text-sm text-muted-foreground">
                       { selectedImages.length > 0
-                        ? `Вибрано файлів: ${selectedImages.length}`
-                        : "PNG, JPG до 10MB (можна декілька)" }
+                        ? `Вибране фото: ${selectedImages[0]?.name || "1 файл"}`
+                        : "PNG, JPG до 10MB (1 фото)" }
                     </p>
                   </label>
                 </div>
