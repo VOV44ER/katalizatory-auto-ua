@@ -68,7 +68,6 @@ export const Hero = () => {
       <div
         className="absolute inset-0 z-0"
         style={ {
-          // В Next.js импорт изображения даёт объект, поэтому используем heroBg.src
           backgroundImage: `url(${typeof heroBg === "string" ? heroBg : heroBg.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
