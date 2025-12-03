@@ -17,7 +17,7 @@ export const WhyBuyInfo = () => {
                             реальної вартості.
                         </p>
                         <p className="text-lg text-muted-foreground leading-relaxed">
-                            В Києві є всього кілька СТО, які роблять <span className="font-semibold text-foreground">правильну</span>{ " " }
+                            В Києві є всього кілька скупок, які роблять <span className="font-semibold text-foreground">правильну</span>{ " " }
                             оцінку каталізатора, адже вартість професійного спектрального
                             аналізатора стартує від <span className="font-semibold text-foreground">20 000$</span>. Ми працюємо саме
                             з таким обладнанням і показуємо клієнту весь процес оцінки.
