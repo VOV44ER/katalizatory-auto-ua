@@ -119,7 +119,7 @@ export const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */ }
           <div className="animate-slide-in-left">
-            <h1 className="text-5xl lg:text-7xl font-display font-bold mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold mb-6 leading-tight sm:leading-tight">
               { text.headingLine1 }
               <br />
               <span className="text-primary">{ text.headingLine2 }</span>
