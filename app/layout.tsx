@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 
-const siteUrl = "https://katalizatory-auto-ua.vercel.app";
+const siteUrl = "https://katalizatory-auto.com";
 
 export const metadata: Metadata = {
     title: "Скупка та прийом каталізаторів в Україні | KATALIZATORY AUTO UA",

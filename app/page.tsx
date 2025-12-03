@@ -24,7 +24,7 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "AutoPartsStore",
             name: "KATALIZATORY AUTO UA",
-            url: "https://katalizatory-auto-ua.vercel.app",
+            url: "https://katalizatory-auto.com",
             description:
               "Скупка та викуп автомобільних каталізаторів і сажових фільтрів по всій Україні. Спектральний аналіз, чесні ціни, виплата за 5 хвилин.",
             telephone: "+380631060301",
