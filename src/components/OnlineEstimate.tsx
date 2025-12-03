@@ -74,12 +74,10 @@ export const OnlineEstimate = () => {
   };
 
   const isValidUaPhone = (value: string) => {
-    // Проверяем, что номер заполнен полностью (нет символов маски)
     if (value.includes("_") || value.length < 17) {
       return false;
     }
     const digits = value.replace(/\D/g, "");
-    // Должно быть 12 цифр: 380 + 9 цифр номера
     return /^380\d{9}$/.test(digits);
   };
 
