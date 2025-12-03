@@ -8,7 +8,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center space-x-2">
             <a href="#top" className="text-2xl font-display font-bold text-foreground">
-              КАТАЛІЗАТОРИ <span className="text-primary">AUTO UA</span>
+              KATALIZATORY <span className="text-primary">AUTO UA</span>
             </a>
           </div>
 

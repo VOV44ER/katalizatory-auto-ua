@@ -73,7 +73,7 @@ export const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-smooth"
-                  aria-label="Facebook КАТАЛІЗАТОРИ AUTO UA"
+                  aria-label="Facebook KATALIZATORY AUTO UA"
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
@@ -82,7 +82,7 @@ export const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-smooth"
-                  aria-label="Instagram КАТАЛІЗАТОРИ AUTO UA"
+                  aria-label="Instagram KATALIZATORY AUTO UA"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
@@ -91,7 +91,7 @@ export const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-smooth"
-                  aria-label="TikTok КАТАЛІЗАТОРИ AUTO UA"
+                  aria-label="TikTok KATALIZATORY AUTO UA"
                 >
                   <svg
                     className="w-5 h-5"
