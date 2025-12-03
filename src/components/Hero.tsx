@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { PhoneInput } from "@/components/ui/phone-input";
 import { useToast } from "@/hooks/use-toast";
 import heroBg from "@/assets/hero-bg.jpg";
 import { useLanguage } from "@/hooks/use-language";
@@ -19,8 +20,8 @@ export const Hero = () => {
   const text = {
     invalidPhoneTitle: isRu ? "Некорректный номер телефона" : "Некоректний номер телефону",
     invalidPhoneDescription: isRu
-      ? "Укажите, пожалуйста, украинский номер в формате +380XXXXXXXXX или 0XXXXXXXXX."
-      : "Вкажіть, будь ласка, український номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+      ? "Укажите, пожалуйста, украинский номер в формате +380 (XX) XXX-XX-XX."
+      : "Вкажіть, будь ласка, український номер у форматі +380 (XX) XXX-XX-XX.",
     successTitle: isRu ? "Заявка получена!" : "Заявку отримано!",
     successDescription: isRu
       ? "Наш менеджер свяжется с вами в течение 5 минут"
@@ -52,8 +53,13 @@ export const Hero = () => {
   };
 
   const isValidUaPhone = (value: string) => {
+    // Проверяем, что номер заполнен полностью (нет символов маски)
+    if (value.includes("_") || value.length < 17) {
+      return false;
+    }
     const digits = value.replace(/\D/g, "");
-    return /^380\d{9}$/.test(digits) || /^0\d{9}$/.test(digits);
+    // Должно быть 12 цифр: 380 + 9 цифр номера
+    return /^380\d{9}$/.test(digits);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -215,8 +221,7 @@ export const Hero = () => {
                   onChange={ (e) => setName(e.target.value) }
                   required
                 />
-                <Input
-                  type="tel"
+                <PhoneInput
                   placeholder={ text.phonePlaceholder }
                   name="phone"
                   inputMode="tel"

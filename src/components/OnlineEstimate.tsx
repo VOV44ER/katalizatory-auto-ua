@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Upload, Car, Calendar, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { PhoneInput } from "@/components/ui/phone-input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -34,8 +35,8 @@ export const OnlineEstimate = () => {
       : "Ми оперативно оцінимо ваш каталізатор за допомогою спектрального аналізу або за фото та даними, які ви надішлете через форму. Після аналізу уточнюємо остаточну вартість і погоджуємо виплату.",
     invalidPhoneTitle: isRu ? "Некорректный номер телефона" : "Некоректний номер телефону",
     invalidPhoneDescription: isRu
-      ? "Укажите, пожалуйста, украинский номер в формате +380XXXXXXXXX или 0XXXXXXXXX."
-      : "Вкажіть, будь ласка, український номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+      ? "Укажите, пожалуйста, украинский номер в формате +380 (XX) XXX-XX-XX."
+      : "Вкажіть, будь ласка, український номер у форматі +380 (XX) XXX-XX-XX.",
     fileTooBigTitle: isRu ? "Слишком большой файл" : "Занадто великий файл",
     fileTooBigDescription: isRu
       ? "Максимальный размер фото — 10MB. Пожалуйста, выберите файл поменьше."
@@ -73,8 +74,13 @@ export const OnlineEstimate = () => {
   };
 
   const isValidUaPhone = (value: string) => {
+    // Проверяем, что номер заполнен полностью (нет символов маски)
+    if (value.includes("_") || value.length < 17) {
+      return false;
+    }
     const digits = value.replace(/\D/g, "");
-    return /^380\d{9}$/.test(digits) || /^0\d{9}$/.test(digits);
+    // Должно быть 12 цифр: 380 + 9 цифр номера
+    return /^380\d{9}$/.test(digits);
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -213,9 +219,8 @@ export const OnlineEstimate = () => {
                     <CheckCircle2 className="w-4 h-4 text-primary" />
                     { text.phoneLabel }
                   </Label>
-                  <Input
+                  <PhoneInput
                     id="phone"
-                    type="tel"
                     name="phone"
                     placeholder={ text.phonePlaceholder }
                     inputMode="tel"
