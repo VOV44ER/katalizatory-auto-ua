@@ -6,11 +6,50 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import heroBg from "@/assets/hero-bg.jpg";
+import { useLanguage } from "@/hooks/use-language";
 
 export const Hero = () => {
   const { toast } = useToast();
+  const { lang } = useLanguage();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+
+  const isRu = lang === "ru";
+
+  const text = {
+    invalidPhoneTitle: isRu ? "Некорректный номер телефона" : "Некоректний номер телефону",
+    invalidPhoneDescription: isRu
+      ? "Укажите, пожалуйста, украинский номер в формате +380XXXXXXXXX или 0XXXXXXXXX."
+      : "Вкажіть, будь ласка, український номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+    successTitle: isRu ? "Заявка получена!" : "Заявку отримано!",
+    successDescription: isRu
+      ? "Наш менеджер свяжется с вами в течение 5 минут"
+      : "Наш менеджер зв'яжеться з вами протягом 5 хвилин",
+    errorTitle: isRu ? "Ошибка отправки" : "Помилка відправки",
+    errorDescription: isRu
+      ? "Не удалось отправить заявку. Пожалуйста, попробуйте ещё раз."
+      : "Не вдалося надіслати заявку. Спробуйте, будь ласка, ще раз.",
+    headingLine1: isRu ? "ВЫГОДНЫЙ ВЫКУП" : "ВИГІДНА СКУПКА",
+    headingLine2: isRu ? "КАТАЛИЗАТОРОВ" : "КАТАЛІЗАТОРІВ",
+    subheadingPrefix: isRu
+      ? "Продайте свой катализатор с выгодой до"
+      : "Продайте свій каталізатор з вигодою до",
+    socialLabel: isRu ? "Мы в соцсетях:" : "Ми в соцмережах:",
+    statYearsValue: isRu ? "5+ лет" : "5+ років",
+    statYearsLabel: isRu ? "на рынке" : "на ринку",
+    statDealsValue: "10 000+",
+    statDealsLabel: isRu ? "выкупов" : "викупів",
+    formTitle: isRu ? "Получить консультацию" : "Отримати консультацію",
+    formSubtitle: isRu
+      ? "Менеджер свяжется с вами в течение 5 минут"
+      : "Менеджер зв'яжеться з Вами протягом 5 хвилин",
+    namePlaceholder: isRu ? "Ваше имя" : "Ваше ім'я",
+    phonePlaceholder: isRu ? "+380 (XX) XXX-XX-XX" : "+380 (XX) XXX-XX-XX",
+    submitLabel: isRu ? "Отправить" : "Відправити",
+    notice: isRu
+      ? "Нажимая кнопку, вы соглашаетесь с условиями обработки персональных данных"
+      : "Натискаючи кнопку, ви погоджуєтесь з умовами обробки персональних даних",
+  };
 
   const isValidUaPhone = (value: string) => {
     const digits = value.replace(/\D/g, "");
@@ -21,9 +60,8 @@ export const Hero = () => {
     e.preventDefault();
     if (!isValidUaPhone(phone)) {
       toast({
-        title: "Некоректний номер телефону",
-        description:
-          "Вкажіть, будь ласка, український номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+        title: text.invalidPhoneTitle,
+        description: text.invalidPhoneDescription,
         variant: "destructive",
       });
       return;
@@ -47,16 +85,16 @@ export const Hero = () => {
       }
 
       toast({
-        title: "Заявку отримано!",
-        description: "Наш менеджер зв'яжеться з вами протягом 5 хвилин",
+        title: text.successTitle,
+        description: text.successDescription,
       });
       setName("");
       setPhone("");
     } catch (error) {
       console.error(error);
       toast({
-        title: "Помилка відправки",
-        description: "Не вдалося надіслати заявку. Спробуйте, будь ласка, ще раз.",
+        title: text.errorTitle,
+        description: text.errorDescription,
         variant: "destructive",
       });
     }
@@ -82,16 +120,17 @@ export const Hero = () => {
           {/* Left Content */ }
           <div className="animate-slide-in-left">
             <h1 className="text-5xl lg:text-7xl font-display font-bold mb-6 leading-tight">
-              ВИГІДНА СКУПКА
+              { text.headingLine1 }
               <br />
-              <span className="text-primary">КАТАЛІЗАТОРІВ</span>
+              <span className="text-primary">{ text.headingLine2 }</span>
             </h1>
             <p className="text-xl lg:text-2xl text-muted-foreground mb-6">
-              Продайте свій каталізатор з вигодою до <span className="text-primary font-bold">40 000 грн!</span>
+              { text.subheadingPrefix }{ " " }
+              <span className="text-primary font-bold">40 000 грн!</span>
             </p>
 
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-sm text-muted-foreground">Ми в соцмережах:</span>
+              <span className="text-sm text-muted-foreground">{ text.socialLabel }</span>
               <div className="flex items-center gap-3">
                 <a
                   href="https://www.facebook.com/people/%D0%9A%D0%B0%D1%82%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%82%D0%BE%D1%80%D0%B8-AUTO-UA/61559600826808/"
@@ -138,8 +177,8 @@ export const Hero = () => {
                   </svg>
                 </div>
                 <div>
-                  <div className="font-semibold">5+ років</div>
-                  <div className="text-sm text-muted-foreground">на ринку</div>
+                  <div className="font-semibold">{ text.statYearsValue }</div>
+                  <div className="text-sm text-muted-foreground">{ text.statYearsLabel }</div>
                 </div>
               </div>
 
@@ -150,8 +189,8 @@ export const Hero = () => {
                   </svg>
                 </div>
                 <div>
-                  <div className="font-semibold">10 000+</div>
-                  <div className="text-sm text-muted-foreground">викупів</div>
+                  <div className="font-semibold">{ text.statDealsValue }</div>
+                  <div className="text-sm text-muted-foreground">{ text.statDealsLabel }</div>
                 </div>
               </div>
             </div>
@@ -161,16 +200,16 @@ export const Hero = () => {
           <div className="animate-slide-in-right">
             <div className="bg-card/80 backdrop-blur-lg rounded-2xl p-8 shadow-card border border-border">
               <h3 className="text-2xl font-display font-bold mb-2">
-                Отримати консультацію
+                { text.formTitle }
               </h3>
               <p className="text-muted-foreground mb-6">
-                Менеджер зв'яжеться з Вами протягом 5 хвилин
+                { text.formSubtitle }
               </p>
 
               <form onSubmit={ handleSubmit } className="space-y-4">
                 <Input
                   type="text"
-                  placeholder="Ваше ім'я"
+                  placeholder={ text.namePlaceholder }
                   name="name"
                   value={ name }
                   onChange={ (e) => setName(e.target.value) }
@@ -178,7 +217,7 @@ export const Hero = () => {
                 />
                 <Input
                   type="tel"
-                  placeholder="+380 (XX) XXX-XX-XX"
+                  placeholder={ text.phonePlaceholder }
                   name="phone"
                   inputMode="tel"
                   value={ phone }
@@ -191,12 +230,12 @@ export const Hero = () => {
                   size="lg"
                   className="w-full"
                 >
-                  Відправити
+                  { text.submitLabel }
                 </Button>
               </form>
 
               <p className="text-xs text-muted-foreground text-center mt-4">
-                Натискаючи кнопку, ви погоджуєтесь з умовами обробки персональних даних
+                { text.notice }
               </p>
             </div>
           </div>

@@ -5,11 +5,39 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, MessageCircle } from "lucide-react";
+import { useLanguage } from "@/hooks/use-language";
 
 export const CTA = () => {
   const { toast } = useToast();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const { lang } = useLanguage();
+  const isRu = lang === "ru";
+
+  const text = {
+    invalidPhoneTitle: isRu ? "Некорректный номер телефона" : "Некоректний номер телефону",
+    invalidPhoneDescription: isRu
+      ? "Укажите, пожалуйста, украинский номер в формате +380XXXXXXXXX или 0XXXXXXXXX."
+      : "Вкажіть, будь ласка, український номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+    successTitle: isRu ? "Заявка получена!" : "Заявку отримано!",
+    successDescription: isRu
+      ? "Наш менеджер свяжется с вами в ближайшее время"
+      : "Наш менеджер зв'яжеться з вами найближчим часом",
+    heading: isRu ? "Готовы продать ваш" : "Готові продати ваш",
+    headingHighlight: isRu ? "катализатор?" : "каталізатор?",
+    subheading: isRu
+      ? "Оставьте заявку прямо сейчас и получите бесплатную консультацию и оценку стоимости."
+      : "Залиште заявку прямо зараз і отримайте безкоштовну консультацію та оцінку вартості.",
+    callLabel: isRu ? "Звоните" : "Телефонуйте",
+    workingHoursLabel: isRu ? "Работаем" : "Працюємо",
+    workingHoursValue: isRu ? "Пн-Вс: 9:00 - 21:00" : "Пн-Нд: 9:00 - 21:00",
+    formNamePlaceholder: isRu ? "Ваше имя" : "Ваше ім'я",
+    formPhonePlaceholder: "+380 (XX) XXX-XX-XX",
+    formButton: isRu ? "Получить консультацию" : "Отримати консультацію",
+    responseTime: isRu
+      ? "Ответ в течение 5 минут"
+      : "Відповідь протягом 5 хвилин",
+  };
 
   const isValidUaPhone = (value: string) => {
     const digits = value.replace(/\D/g, "");
@@ -20,16 +48,15 @@ export const CTA = () => {
     e.preventDefault();
     if (!isValidUaPhone(phone)) {
       toast({
-        title: "Некоректний номер телефону",
-        description:
-          "Вкажіть, будь ласка, український номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+        title: text.invalidPhoneTitle,
+        description: text.invalidPhoneDescription,
         variant: "destructive",
       });
       return;
     }
     toast({
-      title: "Заявку отримано!",
-      description: "Наш менеджер зв'яжеться з вами найближчим часом",
+      title: text.successTitle,
+      description: text.successDescription,
     });
     setName("");
     setPhone("");
@@ -44,10 +71,10 @@ export const CTA = () => {
               {/* Left Content */ }
               <div>
                 <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">
-                  Готові продати ваш <span className="text-primary">каталізатор?</span>
+                  { text.heading } <span className="text-primary">{ text.headingHighlight }</span>
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Залиште заявку прямо зараз і отримайте безкоштовну консультацію та оцінку вартості
+                  { text.subheading }
                 </p>
 
                 <div className="space-y-4">
@@ -56,7 +83,7 @@ export const CTA = () => {
                       <Phone className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <div className="font-semibold">Телефонуйте</div>
+                      <div className="font-semibold">{ text.callLabel }</div>
                       <a href="tel:+380631060301" className="text-primary hover:text-primary/80 transition-smooth">
                         +38 (063) 106-03-01
                       </a>
@@ -68,8 +95,8 @@ export const CTA = () => {
                       <MessageCircle className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <div className="font-semibold">Працюємо</div>
-                      <div className="text-muted-foreground">Пн-Нд: 9:00 - 21:00</div>
+                      <div className="font-semibold">{ text.workingHoursLabel }</div>
+                      <div className="text-muted-foreground">{ text.workingHoursValue }</div>
                     </div>
                   </div>
                 </div>
@@ -80,7 +107,7 @@ export const CTA = () => {
                 <form onSubmit={ handleSubmit } className="space-y-4">
                   <Input
                     type="text"
-                    placeholder="Ваше ім'я"
+                    placeholder={ text.formNamePlaceholder }
                     name="name"
                     value={ name }
                     onChange={ (e) => setName(e.target.value) }
@@ -88,7 +115,7 @@ export const CTA = () => {
                   />
                   <Input
                     type="tel"
-                    placeholder="+380 (XX) XXX-XX-XX"
+                    placeholder={ text.formPhonePlaceholder }
                     name="phone"
                     inputMode="tel"
                     value={ phone }
@@ -101,12 +128,12 @@ export const CTA = () => {
                     size="lg"
                     className="w-full"
                   >
-                    Отримати консультацію
+                    { text.formButton }
                   </Button>
                 </form>
 
                 <p className="text-xs text-muted-foreground text-center mt-4">
-                  Відповідь протягом 5 хвилин
+                  { text.responseTime }
                 </p>
               </div>
             </div>

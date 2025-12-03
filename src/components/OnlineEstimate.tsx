@@ -15,6 +15,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/hooks/use-language";
 
 const carBrands = ["Toyota", "BMW", "Mercedes-Benz", "Volkswagen", "Audi", "Lexus", "Honda", "Mazda", "Ford", "Інше"];
 
@@ -22,6 +23,54 @@ export const OnlineEstimate = () => {
   const [selectedImages, setSelectedImages] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { lang } = useLanguage();
+  const isRu = lang === "ru";
+
+  const text = {
+    title: isRu ? "Онлайн" : "Онлайн",
+    titleHighlight: isRu ? "оценка" : "оцінка",
+    description: isRu
+      ? "Мы оперативно оценим ваш катализатор с помощью спектрального анализа или по фото и данным, которые вы отправите через форму. После анализа уточняем окончательную стоимость и согласуем выплату."
+      : "Ми оперативно оцінимо ваш каталізатор за допомогою спектрального аналізу або за фото та даними, які ви надішлете через форму. Після аналізу уточнюємо остаточну вартість і погоджуємо виплату.",
+    invalidPhoneTitle: isRu ? "Некорректный номер телефона" : "Некоректний номер телефону",
+    invalidPhoneDescription: isRu
+      ? "Укажите, пожалуйста, украинский номер в формате +380XXXXXXXXX или 0XXXXXXXXX."
+      : "Вкажіть, будь ласка, український номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+    fileTooBigTitle: isRu ? "Слишком большой файл" : "Занадто великий файл",
+    fileTooBigDescription: isRu
+      ? "Максимальный размер фото — 10MB. Пожалуйста, выберите файл поменьше."
+      : "Максимальний розмір фото — 10MB. Оберіть, будь ласка, менший файл.",
+    nameLabel: isRu ? "Ваше имя" : "Ваше ім'я",
+    namePlaceholder: isRu ? "Введите ваше имя" : "Введіть ваше ім'я",
+    phoneLabel: isRu ? "Телефон" : "Телефон",
+    phonePlaceholder: "+380 (XX) XXX-XX-XX",
+    brandLabel: isRu ? "Марка авто" : "Марка авто",
+    brandPlaceholder: isRu ? "Выберите марку" : "Оберіть марку",
+    yearLabel: isRu ? "Год выпуска" : "Рік випуску",
+    modelLabel: isRu ? "Модель авто" : "Модель авто",
+    modelPlaceholder: isRu ? "Например: Camry, X5, E-Class" : "Наприклад: Camry, X5, E-Class",
+    photoLabel: isRu ? "Фото катализатора (1 шт.)" : "Фото каталізатора (1 шт.)",
+    photoClick: isRu ? "Нажмите, чтобы загрузить фото" : "Натисніть для завантаження фото",
+    photoSelectedPrefix: isRu ? "Выбранное фото" : "Вибране фото",
+    photoHint: isRu ? "PNG, JPG до 10MB (1 фото)" : "PNG, JPG до 10MB (1 фото)",
+    commentLabel: isRu ? "Дополнительная информация" : "Додаткова інформація",
+    commentPlaceholder: isRu
+      ? "Опишите состояние катализатора или добавьте любую другую информацию"
+      : "Опишіть стан каталізатора або додайте будь-яку іншу інформацію",
+    submitSending: isRu ? "Отправка..." : "Надсилання...",
+    submitDefault: isRu ? "Получить оценку" : "Отримати оцінку",
+    footerText: isRu
+      ? "Наш менеджер свяжется с вами в течение 5 минут для уточнения деталей"
+      : "Наш менеджер зв'яжеться з вами протягом 5 хвилин для уточнення деталей",
+    successTitle: isRu ? "Заявка отправлена!" : "Заявка надіслана!",
+    successDescription: isRu
+      ? "Наш менеджер свяжется с вами в течение 5 минут"
+      : "Наш менеджер зв'яжеться з вами протягом 5 хвилин",
+    errorTitle: isRu ? "Ошибка отправки" : "Помилка відправки",
+    errorDescription: isRu
+      ? "Не удалось отправить заявку. Пожалуйста, попробуйте ещё раз."
+      : "Не вдалося надіслати заявку. Спробуйте, будь ласка, ще раз.",
+  };
 
   const isValidUaPhone = (value: string) => {
     const digits = value.replace(/\D/g, "");
@@ -37,8 +86,8 @@ export const OnlineEstimate = () => {
         const maxSizeBytes = 10 * 1024 * 1024;
         if (first.size > maxSizeBytes) {
           toast({
-            title: "Занадто великий файл",
-            description: "Максимальний розмір фото — 10MB. Оберіть, будь ласка, менший файл.",
+            title: text.fileTooBigTitle,
+            description: text.fileTooBigDescription,
             variant: "destructive",
           });
           e.target.value = "";
@@ -58,9 +107,8 @@ export const OnlineEstimate = () => {
 
     if (!isValidUaPhone(phone)) {
       toast({
-        title: "Некоректний номер телефону",
-        description:
-          "Вкажіть, будь ласка, український номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+        title: text.invalidPhoneTitle,
+        description: text.invalidPhoneDescription,
         variant: "destructive",
       });
       return;
@@ -113,16 +161,16 @@ export const OnlineEstimate = () => {
       }
 
       toast({
-        title: "Заявка надіслана!",
-        description: "Наш менеджер зв'яжеться з вами протягом 5 хвилин",
+        title: text.successTitle,
+        description: text.successDescription,
       });
       setSelectedImages([]);
       (e.target as HTMLFormElement).reset();
     } catch (error) {
       console.error(error);
       toast({
-        title: "Помилка відправки",
-        description: "Не вдалося надіслати заявку. Спробуйте, будь ласка, ще раз.",
+        title: text.errorTitle,
+        description: text.errorDescription,
         variant: "destructive",
       });
     } finally {
@@ -135,12 +183,10 @@ export const OnlineEstimate = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4">
-            Онлайн <span className="text-primary">оцінка</span>
+            { text.title } <span className="text-primary">{ text.titleHighlight }</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ми оперативно оцінимо ваш каталізатор за допомогою спектрального аналізу або за фото та
-            даними, які ви надішлете через форму. Після аналізу уточнюємо остаточну вартість і
-            погоджуємо виплату.
+            { text.description }
           </p>
         </div>
 
@@ -151,12 +197,12 @@ export const OnlineEstimate = () => {
                 <div className="space-y-2">
                   <Label htmlFor="name" className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    Ваше ім'я
+                    { text.nameLabel }
                   </Label>
                   <Input
                     id="name"
                     name="name"
-                    placeholder="Введіть ваше ім'я"
+                    placeholder={ text.namePlaceholder }
                     required
                     className="border-border focus:border-primary"
                   />
@@ -165,13 +211,13 @@ export const OnlineEstimate = () => {
                 <div className="space-y-2">
                   <Label htmlFor="phone" className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-primary" />
-                    Телефон
+                    { text.phoneLabel }
                   </Label>
                   <Input
                     id="phone"
                     type="tel"
                     name="phone"
-                    placeholder="+380 (XX) XXX-XX-XX"
+                    placeholder={ text.phonePlaceholder }
                     inputMode="tel"
                     required
                     className="border-border focus:border-primary"
@@ -183,11 +229,11 @@ export const OnlineEstimate = () => {
                 <div className="space-y-2">
                   <Label htmlFor="brand" className="flex items-center gap-2">
                     <Car className="w-4 h-4 text-primary" />
-                    Марка авто
+                    { text.brandLabel }
                   </Label>
                   <Select required name="brand">
                     <SelectTrigger className="h-12 rounded-lg border-2 border-border bg-card px-4 text-base">
-                      <SelectValue placeholder="Оберіть марку" />
+                      <SelectValue placeholder={ text.brandPlaceholder } />
                     </SelectTrigger>
                     <SelectContent>
                       { carBrands.map((brand) => (
@@ -202,7 +248,7 @@ export const OnlineEstimate = () => {
                 <div className="space-y-2">
                   <Label htmlFor="year" className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 text-primary" />
-                    Рік випуску
+                    { text.yearLabel }
                   </Label>
                   <Input
                     id="year"
@@ -218,11 +264,11 @@ export const OnlineEstimate = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="model">Модель авто</Label>
+                <Label htmlFor="model">{ text.modelLabel }</Label>
                 <Input
                   id="model"
                   name="model"
-                  placeholder="Наприклад: Camry, X5, E-Class"
+                  placeholder={ text.modelPlaceholder }
                   className="border-border focus:border-primary"
                 />
               </div>
@@ -230,7 +276,7 @@ export const OnlineEstimate = () => {
               <div className="space-y-2">
                 <Label htmlFor="photos" className="flex items-center gap-2">
                   <Upload className="w-4 h-4 text-primary" />
-                  Фото каталізатора (1 шт.)
+                  { text.photoLabel }
                 </Label>
                 <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-primary transition-smooth cursor-pointer">
                   <input
@@ -243,23 +289,23 @@ export const OnlineEstimate = () => {
                   <label htmlFor="photos" className="cursor-pointer">
                     <Upload className="w-12 h-12 mx-auto mb-4 text-primary" />
                     <p className="text-foreground font-semibold mb-2">
-                      Натисніть для завантаження фото
+                      { text.photoClick }
                     </p>
                     <p className="text-sm text-muted-foreground">
                       { selectedImages.length > 0
-                        ? `Вибране фото: ${selectedImages[0]?.name || "1 файл"}`
-                        : "PNG, JPG до 10MB (1 фото)" }
+                        ? `${text.photoSelectedPrefix}: ${selectedImages[0]?.name || "1 файл"}`
+                        : text.photoHint }
                     </p>
                   </label>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="comment">Додаткова інформація</Label>
+                <Label htmlFor="comment">{ text.commentLabel }</Label>
                 <Textarea
                   id="comment"
                   name="comment"
-                  placeholder="Опишіть стан каталізатора або додайте будь-яку іншу інформацію"
+                  placeholder={ text.commentPlaceholder }
                   className="min-h-[100px] rounded-lg border-2 border-border bg-card px-4 py-3 text-base focus:border-primary"
                 />
               </div>
@@ -270,11 +316,11 @@ export const OnlineEstimate = () => {
                 className="w-full text-lg"
                 disabled={ isSubmitting }
               >
-                { isSubmitting ? "Надсилання..." : "Отримати оцінку" }
+                { isSubmitting ? text.submitSending : text.submitDefault }
               </Button>
 
               <p className="text-sm text-muted-foreground text-center">
-                Наш менеджер зв'яжеться з вами протягом 5 хвилин для уточнення деталей
+                { text.footerText }
               </p>
             </form>
           </Card>

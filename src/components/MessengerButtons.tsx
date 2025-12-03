@@ -1,3 +1,5 @@
+"use client";
+
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -6,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLanguage } from "@/hooks/use-language";
 
 const messengers = [
   {
@@ -29,6 +32,9 @@ const messengers = [
 ];
 
 export const MessengerButtons = () => {
+  const { lang } = useLanguage();
+  const isRu = lang === "ru";
+
   return (
     <div className="fixed bottom-6 right-6 z-50 animate-fade-in">
       <DropdownMenu>
@@ -42,7 +48,9 @@ export const MessengerButtons = () => {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56 mb-2">
           <div className="p-2">
-            <p className="text-sm font-semibold mb-2 px-2">Напишіть нам:</p>
+            <p className="text-sm font-semibold mb-2 px-2">
+              { isRu ? "Напишите нам:" : "Напишіть нам:" }
+            </p>
             { messengers.map((messenger) => (
               <DropdownMenuItem key={ messenger.name } asChild>
                 <a
@@ -65,7 +73,9 @@ export const MessengerButtons = () => {
             >
               <span className="text-2xl">📞</span>
               <div>
-                <p className="font-semibold text-sm">Подзвонити</p>
+                <p className="font-semibold text-sm">
+                  { isRu ? "Позвонить" : "Подзвонити" }
+                </p>
                 <p className="text-xs text-muted-foreground">+38 (063) 106-03-01</p>
               </div>
             </a>

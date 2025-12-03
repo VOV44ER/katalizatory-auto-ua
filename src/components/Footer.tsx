@@ -1,7 +1,13 @@
+"use client";
+
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/hooks/use-language";
 
 export const Footer = () => {
+  const { lang } = useLanguage();
+  const isRu = lang === "ru";
+
   return (
     <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4 lg:px-8">
@@ -12,7 +18,9 @@ export const Footer = () => {
               KATALIZATORY <span className="text-primary">AUTO UA</span>
             </h3>
             <p className="text-muted-foreground mb-4">
-              Професійна скупка автомобільних каталізаторів по всій Україні. Чесні ціни, швидкі виплати.
+              { isRu
+                ? "Профессиональный выкуп автомобильных катализаторов по всей Украине. Честные цены, быстрые выплаты."
+                : "Професійна скупка автомобільних каталізаторів по всій Україні. Чесні ціни, швидкі виплати." }
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -54,7 +62,9 @@ export const Footer = () => {
 
           {/* Contacts */ }
           <div>
-            <h4 className="text-lg font-display font-bold mb-4">Контакти</h4>
+            <h4 className="text-lg font-display font-bold mb-4">
+              { isRu ? "Контакты" : "Контакти" }
+            </h4>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2 text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
@@ -64,7 +74,11 @@ export const Footer = () => {
               </li>
               <li className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>м. Київ, вул. Новокостянтинівська, 1В</span>
+                <span>
+                  { isRu
+                    ? "г. Киев, ул. Новоконстантиновская, 1В"
+                    : "м. Київ, вул. Новокостянтинівська, 1В" }
+                </span>
               </li>
             </ul>
           </div>
@@ -75,7 +89,7 @@ export const Footer = () => {
             <div className="relative h-64 rounded-xl overflow-hidden border border-border">
               <Image
                 src="/office.png"
-                alt="Офіс KATALIZATORY AUTO UA"
+                alt={ isRu ? "Офис KATALIZATORY AUTO UA" : "Офіс KATALIZATORY AUTO UA" }
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -84,7 +98,11 @@ export const Footer = () => {
             </div>
             <div className="w-full h-64 rounded-xl overflow-hidden border border-border">
               <iframe
-                title="Карта розташування KATALIZATORY AUTO UA"
+                title={
+                  isRu
+                    ? "Карта расположения KATALIZATORY AUTO UA"
+                    : "Карта розташування KATALIZATORY AUTO UA"
+                }
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2684.4783549129006!2d30.492558199999994!3d50.47808149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cdee3fc59b17%3A0xea58ce64a5e35bc!2z0KHQutGD0L_QutCwINC60LDRgtCw0LvRltC30LDRgtC-0YDRltCyICJLQVRBTElaQVRPUllfQVVUT19VQSI!5e1!3m2!1suk!2sua!4v1764754564754!5m2!1suk!2sua"
                 className="w-full h-full border-0"
                 loading="lazy"
@@ -95,7 +113,10 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-muted-foreground">
-          <p>&copy; { new Date().getFullYear() } KATALIZATORY AUTO UA. Всі права захищені.</p>
+          <p>
+            &copy; { new Date().getFullYear() } KATALIZATORY AUTO UA.{ " " }
+            { isRu ? "Все права защищены." : "Всі права захищені." }
+          </p>
         </div>
       </div>
     </footer>
