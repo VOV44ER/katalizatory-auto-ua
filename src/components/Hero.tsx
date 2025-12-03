@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -60,9 +61,49 @@ export const Hero = () => {
               <br />
               <span className="text-primary">КАТАЛІЗАТОРІВ</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-muted-foreground mb-8">
+            <p className="text-xl lg:text-2xl text-muted-foreground mb-6">
               Продайте свій каталізатор з вигодою до <span className="text-primary font-bold">40 000 грн!</span>
             </p>
+
+            <div className="flex items-center gap-4 mb-8">
+              <span className="text-sm text-muted-foreground">Ми в соцмережах:</span>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://www.facebook.com/people/%D0%9A%D0%B0%D1%82%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%82%D0%BE%D1%80%D0%B8-AUTO-UA/61559600826808/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                  aria-label="Facebook КАТАЛІЗАТОРИ AUTO UA"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/katalizatory_auto_ua/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                  aria-label="Instagram КАТАЛІЗАТОРИ AUTO UA"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@katalizatory_auto_podil?_r=1&_t=ZS-91t0CjLo3j2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                  aria-label="TikTok КАТАЛІЗАТОРИ AUTO UA"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M16.5 6.5c.6.6 1.3 1.1 2.1 1.5.4.2.8.3 1.2.4V11c-.5 0-1-.1-1.5-.2-.7-.2-1.4-.5-2.1-.9v6.1c0 2.9-2.3 5-5.3 5-1 0-1.9-.2-2.7-.7-.9-.5-1.5-1.1-2-2-.5-.8-.7-1.8-.7-2.8 0-2.9 2.1-5.1 5.1-5.1.4 0 .7 0 1 .1v3.1c-.3-.1-.6-.2-1-.2-1.2 0-2.1.9-2.1 2.1 0 1.2.9 2.1 2.1 2.1 1.2 0 2.1-.9 2.1-2.1V3h3c.1.8.3 1.6.7 2.3.2.5.6.9 1 1.2z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
 
             <div className="flex flex-wrap gap-6 mb-8">
               <div className="flex items-center space-x-3">

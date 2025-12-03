@@ -33,6 +33,22 @@ export const Footer = () => {
               >
                 <Instagram className="w-5 h-5" />
               </a>
+              <a
+                href="https://www.tiktok.com/@katalizatory_auto_podil?_r=1&_t=ZS-91t0CjLo3j2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-smooth"
+                aria-label="TikTok КАТАЛІЗАТОРИ AUTO UA"
+              >
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M16.5 6.5c.6.6 1.3 1.1 2.1 1.5.4.2.8.3 1.2.4V11c-.5 0-1-.1-1.5-.2-.7-.2-1.4-.5-2.1-.9v6.1c0 2.9-2.3 5-5.3 5-1 0-1.9-.2-2.7-.7-.9-.5-1.5-1.1-2-2-.5-.8-.7-1.8-.7-2.8 0-2.9 2.1-5.1 5.1-5.1.4 0 .7 0 1 .1v3.1c-.3-.1-.6-.2-1-.2-1.2 0-2.1.9-2.1 2.1 0 1.2.9 2.1 2.1 2.1 1.2 0 2.1-.9 2.1-2.1V3h3c.1.8.3 1.6.7 2.3.2.5.6.9 1 1.2z" />
+                </svg>
+              </a>
             </div>
           </div>
 
@@ -69,7 +85,7 @@ export const Footer = () => {
             <div className="w-full h-64 rounded-xl overflow-hidden border border-border">
               <iframe
                 title="Карта розташування КАТАЛІЗАТОРИ AUTO UA"
-                src="https://www.google.com/maps?q=50.4784143,30.4918894&z=16&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2684.4783549129006!2d30.492558199999994!3d50.47808149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cdee3fc59b17%3A0xea58ce64a5e35bc!2z0KHQutGD0L_QutCwINC60LDRgtCw0LvRltC30LDRgtC-0YDRltCyICJLQVRBTElaQVRPUllfQVVUT19VQSI!5e1!3m2!1suk!2sua!4v1764754564754!5m2!1suk!2sua"
                 className="w-full h-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
