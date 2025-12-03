@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-// Можно указать несколько chat_id через запятую в TELEGRAM_CHAT_IDS,
-// либо один ID в TELEGRAM_CHAT_ID (для обратной совместимости)
 const TELEGRAM_CHAT_IDS_RAW =
     process.env.TELEGRAM_CHAT_IDS || process.env.TELEGRAM_CHAT_ID || "";
 const TELEGRAM_CHAT_IDS = TELEGRAM_CHAT_IDS_RAW.split(",")
@@ -63,7 +61,6 @@ export async function POST(req: NextRequest) {
     const text = lines.join("\n");
 
     try {
-        // Отправляем сообщение во все указанные чаты
         for (const chatId of TELEGRAM_CHAT_IDS) {
             const tgResponse = await fetch(
                 `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
