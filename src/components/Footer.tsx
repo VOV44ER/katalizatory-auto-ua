@@ -81,32 +81,6 @@ export const Footer = () => {
                 </span>
               </li>
             </ul>
-            <div className="mt-4 space-y-1 text-sm">
-              <a
-                href="/katalizator"
-                className="block text-muted-foreground hover:text-primary transition-smooth"
-              >
-                { isRu ? "Что такое катализатор и как мы его выкупаем" : "Що таке каталізатор і як ми його викуповуємо" }
-              </a>
-              <a
-                href="/prodati-katalizator"
-                className="block text-muted-foreground hover:text-primary transition-smooth"
-              >
-                { isRu ? "Продать катализатор дорого" : "Продати каталізатор дорого" }
-              </a>
-              <a
-                href="/sazhovi-filtry"
-                className="block text-muted-foreground hover:text-primary transition-smooth"
-              >
-                { isRu ? "Выкуп сажевых фильтров (DPF)" : "Викуп сажових фільтрів (DPF)" }
-              </a>
-              <a
-                href="/metalichni-katalizatory"
-                className="block text-muted-foreground hover:text-primary transition-smooth"
-              >
-                { isRu ? "Металлические катализаторы" : "Металеві каталізатори" }
-              </a>
-            </div>
           </div>
         </div>
 
