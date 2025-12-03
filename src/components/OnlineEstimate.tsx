@@ -52,16 +52,48 @@ export const OnlineEstimate = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const payload: Record<string, unknown> = {
+        source: "Online estimate form",
+        name: formData.get("name") || "",
+        phone,
+        brand: formData.get("brand") || "",
+        year: formData.get("year") || "",
+        model: formData.get("model") || "",
+        comment: formData.get("comment") || "",
+        extra: {
+          photosCount: selectedImages.length,
+        },
+      };
+
+      const response = await fetch("/api/telegram", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
       toast({
         title: "Заявка надіслана!",
         description: "Наш менеджер зв'яжеться з вами протягом 5 хвилин",
       });
-      setIsSubmitting(false);
       setSelectedImages([]);
       (e.target as HTMLFormElement).reset();
-    }, 1000);
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Помилка відправки",
+        description: "Не вдалося надіслати заявку. Спробуйте, будь ласка, ще раз.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -119,7 +151,7 @@ export const OnlineEstimate = () => {
                     <Car className="w-4 h-4 text-primary" />
                     Марка авто
                   </Label>
-                  <Select required>
+                  <Select required name="brand">
                     <SelectTrigger className="h-12 rounded-lg border-2 border-border bg-card px-4 text-base">
                       <SelectValue placeholder="Оберіть марку" />
                     </SelectTrigger>
@@ -141,6 +173,7 @@ export const OnlineEstimate = () => {
                   <Input
                     id="year"
                     type="number"
+                    name="year"
                     placeholder="2010"
                     min="1990"
                     max="2025"
@@ -154,6 +187,7 @@ export const OnlineEstimate = () => {
                 <Label htmlFor="model">Модель авто</Label>
                 <Input
                   id="model"
+                  name="model"
                   placeholder="Наприклад: Camry, X5, E-Class"
                   className="border-border focus:border-primary"
                 />
@@ -191,6 +225,7 @@ export const OnlineEstimate = () => {
                 <Label htmlFor="comment">Додаткова інформація</Label>
                 <Textarea
                   id="comment"
+                  name="comment"
                   placeholder="Опишіть стан каталізатора або додайте будь-яку іншу інформацію"
                   className="min-h-[100px] rounded-lg border-2 border-border bg-card px-4 py-3 text-base focus:border-primary"
                 />

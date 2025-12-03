@@ -17,7 +17,7 @@ export const Hero = () => {
     return /^380\d{9}$/.test(digits) || /^0\d{9}$/.test(digits);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValidUaPhone(phone)) {
       toast({
@@ -28,12 +28,38 @@ export const Hero = () => {
       });
       return;
     }
-    toast({
-      title: "Заявку отримано!",
-      description: "Наш менеджер зв'яжеться з вами протягом 5 хвилин",
-    });
-    setName("");
-    setPhone("");
+
+    try {
+      const response = await fetch("/api/telegram", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          source: "Hero form",
+          name,
+          phone,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      toast({
+        title: "Заявку отримано!",
+        description: "Наш менеджер зв'яжеться з вами протягом 5 хвилин",
+      });
+      setName("");
+      setPhone("");
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Помилка відправки",
+        description: "Не вдалося надіслати заявку. Спробуйте, будь ласка, ще раз.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
